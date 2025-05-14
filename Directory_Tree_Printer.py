@@ -8,7 +8,7 @@ file_list = []
 directory_dict = {}
 
 try:
-    for dirpath, dirnames, filenames in os.walk(user_directory):ca
+    for dirpath, dirnames, filenames in os.walk(user_directory):
         print(dirnames)
         # directory_list.append(dirnames)
         # file_list.append(filenames)
