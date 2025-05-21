@@ -1,20 +1,21 @@
 import os
 import sys
+import argparse
+from pathlib import Path
+import logging
 
-user_directory = "E:\\Python_projects\\os_projects\\1.Simple_file_lister"  # input("Enter the path of the directory: ")
+DEFAULT_FOLLOW_SYMLINKS = False
+DEFAULT_MAX_DEPTH = None
+DEFUALT_SHOW_HIDDEN = False
 
-directory_list = []
-file_list = []
-directory_dict = {}
+parser = argparse.ArgumentParser(description='Directory Tree Printer')
+parser.add_argument('--all', action='store_true', help='Limit recursion depth')
+parser.add_argument('--max-depth', type=int, default=DEFAULT_MAX_DEPTH, help='Limit recursion depth')
+parser.add_argument('--follow-symlinks', action='store_true', default=DEFAULT_FOLLOW_SYMLINKS)
 
-try:
-    for dirpath, dirnames, filenames in os.walk(user_directory):
-        directory_dict[dirpath] = filenames
+args = parser.parse_args()
 
 
-except FileNotFoundError:
-    print("Directory Not Found")
-    sys.exit(1)
-except PermissionError:
-    print("Permission Denied")
-    sys.exit(1)
+
+
+
